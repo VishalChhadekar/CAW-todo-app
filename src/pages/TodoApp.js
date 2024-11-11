@@ -22,6 +22,12 @@ const TodoApp = () => {
     setTasks(tasks.filter(task => task.id !== id));
   };
 
+  const handleEditTask = (id, newText) => {
+    setTasks(tasks.map(task =>
+      task.id === id ? { ...task, text: newText } : task
+    ));
+  };
+
   const filteredTasks = tasks.filter(task => {
     if (filter === 'all') return true;
     if (filter === 'completed') return task.completed;
@@ -38,6 +44,7 @@ const TodoApp = () => {
         tasks={filteredTasks}
         onToggleComplete={handleToggleComplete}
         onDeleteTask={handleDeleteTask}
+        onEditTask={handleEditTask} // Pass the edit function here
       />
     </div>
   );

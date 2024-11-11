@@ -17,7 +17,10 @@ const TaskList = ({ tasks, onToggleComplete, onDeleteTask, onEditTask }) => {
             </span>
           </div>
           <div className="flex gap-2">
-            <button onClick={() => onEditTask(task.id)} className="text-blue-500 hover:underline">
+            <button onClick={() => {
+              const newText = prompt("Edit task:", task.text);
+              if (newText) onEditTask(task.id, newText);
+            }} className="text-blue-500 hover:underline">
               Edit
             </button>
             <button onClick={() => onDeleteTask(task.id)} className="text-red-500 hover:underline">
