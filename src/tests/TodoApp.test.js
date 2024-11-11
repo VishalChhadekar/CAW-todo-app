@@ -77,5 +77,56 @@ describe('TodoApp Component', () => {
     const editedTaskElement = screen.getByText(/edited task/i);
     expect(editedTaskElement).toBeInTheDocument();
   });
+  
+  // Filter functionality tests
+  test('shows only completed tasks when filter is set to "completed"', () => {
+    render(<TodoApp />);
+
+    // Add two tasks, one completed and one pending
+    const inputElement = screen.getByPlaceholderText(/add a new task/i);
+    const addButton = screen.getByRole('button', { name: /add/i });
+
+    fireEvent.change(inputElement, { target: { value: 'Completed Task' } });
+    fireEvent.click(addButton);
+    fireEvent.change(inputElement, { target: { value: 'Pending Task' } });
+    fireEvent.click(addButton);
+
+    // Mark the first task as completed
+    const checkboxes = screen.getAllByRole('checkbox');
+    fireEvent.click(checkboxes[0]);
+
+    // Select "Completed" filter
+    const completedFilter = screen.getByRole('button', { name: /completed/i });
+    fireEvent.click(completedFilter);
+
+    // Verify only the completed task is visible
+    expect(screen.getByText(/completed task/i)).toBeInTheDocument();
+    expect(screen.queryByText(/pending task/i)).not.toBeInTheDocument();
+  });
+
+  test('shows only pending tasks when filter is set to "pending"', () => {
+    render(<TodoApp />);
+
+    // Add two tasks, one completed and one pending
+    const inputElement = screen.getByPlaceholderText(/add a new task/i);
+    const addButton = screen.getByRole('button', { name: /add/i });
+
+    fireEvent.change(inputElement, { target: { value: 'Completed Task' } });
+    fireEvent.click(addButton);
+    fireEvent.change(inputElement, { target: { value: 'Pending Task' } });
+    fireEvent.click(addButton);
+
+    // Mark the first task as completed
+    const checkboxes = screen.getAllByRole('checkbox');
+    fireEvent.click(checkboxes[0]);
+
+    // Select "Pending" filter
+    const pendingFilter = screen.getByRole('button', { name: /pending/i });
+    fireEvent.click(pendingFilter);
+
+    // Verify only the pending task is visible
+    expect(screen.getByText(/pending task/i)).toBeInTheDocument();
+    expect(screen.queryByText(/completed task/i)).not.toBeInTheDocument();
+  });
 
 });
