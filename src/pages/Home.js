@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 import AddTask from '../components/AddTask';
-import TaskList from '../components/TaskList';
 import Filter from '../components/Filter';
 import NotificationBanner from '../components/NotificationBanner';
 import useLocalStorage from '../hooks/useLocalStorage';
-import taskData from '../data/todos.json'
+import TaskCard from '../components/TaskCard';
+import taskData from '../data/todos.json';
 
 const Home = () => {
   const [tasks, setTasks] = useLocalStorage('homeTasks', taskData);
@@ -31,6 +31,7 @@ const Home = () => {
     setTasks(tasks.filter(task => task.id !== id));
     showNotification('Task deleted successfully!', 'success');
   };
+
   const handleEditTask = (id, newText) => {
     setTasks(tasks.map(task =>
       task.id === id ? { ...task, text: newText } : task
@@ -54,26 +55,38 @@ const Home = () => {
   });
 
   return (
-    <div className="max-w-4xl mx-auto p-4">
-      <h2 className="text-xl font-semibold text-center mb-4">Welcome to Todo App</h2>
-      <p className="text-center text-gray-600 mb-8">
-        Organize your tasks efficiently. Add, complete, and filter tasks easily!
-      </p>
-      <AddTask onAddTask={handleAddTask} />
-      <Filter filter={filter} setFilter={setFilter} />
-      <TaskList
-        tasks={filteredTasks}
-        onToggleComplete={handleToggleComplete}
-        onDeleteTask={handleDeleteTask}
-        onEditTask={handleEditTask}
-      />
-      {notification.message && (
-        <NotificationBanner
-          message={notification.message}
-          type={notification.type}
-          onClose={closeNotification}
-        />
-      )}
+    <div className="min-h-screen bg-gray-100 py-8 px-4">
+      <div className="max-w-6xl mx-auto p-4 bg-white shadow-lg rounded-lg">
+        <h2 className="text-2xl font-bold text-center mb-4">Sticky Wall - Task Manager</h2>
+        <p className="text-center text-gray-600 mb-8">
+          Organize your tasks efficiently. Add, complete, and filter tasks easily!
+        </p>
+
+        <div className="flex justify-center gap-4 mb-4">
+          <AddTask onAddTask={handleAddTask} />
+          <Filter filter={filter} setFilter={setFilter} />
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+          {filteredTasks.map(task => (
+            <TaskCard
+              key={task.id}
+              task={task}
+              onToggleComplete={handleToggleComplete}
+              onDeleteTask={handleDeleteTask}
+              onEditTask={handleEditTask}
+            />
+          ))}
+        </div>
+
+        {notification.message && (
+          <NotificationBanner
+            message={notification.message}
+            type={notification.type}
+            onClose={closeNotification}
+          />
+        )}
+      </div>
     </div>
   );
 };
