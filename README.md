@@ -1,70 +1,46 @@
-# Getting Started with Create React App
+# Todo App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is a Todo application built as part of the interview assignment for the Software Development Engineer - JS & Unit Testing (SDE) position at CAW. The app provides users with a clean and simple interface to add, edit, delete, and filter tasks, along with additional features to enhance the user experience.
 
-## Available Scripts
+**Live Project**: [https://easy-notes-two.vercel.app/](https://easy-notes-two.vercel.app/)  
+**GitHub Repository**: [https://github.com/VishalChhadekar/CAW-todo-app.git](https://github.com/VishalChhadekar/CAW-todo-app.git)
 
-In the project directory, you can run:
+## Project Overview
 
-### `npm start`
+The CAW Todo App is a task management tool that allows users to:
+- Add new tasks to their list
+- Mark tasks as complete or pending
+- Edit task text as needed
+- Delete tasks
+- Filter tasks by their status (all, completed, pending)
+- View notifications for actions performed
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The project emphasizes clean, maintainable code, state management, and test-driven development to ensure a smooth and reliable user experience.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## Key Features
 
-### `npm test`
+1. **Task Management**: Add, edit, delete, and mark tasks as completed or pending.
+2. **Task Filtering**: Filter tasks by status (all, completed, pending).
+3. **Notifications**: Real-time feedback for actions performed (task added, edited, deleted, etc.).
+4. **Responsive UI**: A clean and responsive design using HTML and CSS (Tailwind CSS).
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Tech Stack
 
-### `npm run build`
+- **Frontend**: React.js, Tailwind CSS
+- **State Management**: React useState and custom hooks
+- **Testing**: Jest and React Testing Library
+- **Deployment**: Vercel
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Prerequisites
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- [Node.js](https://nodejs.org/) (v14 or higher)
+- [Git](https://git-scm.com/)
 
-### `npm run eject`
+### Installation
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/VishalChhadekar/CAW-todo-app.git
+   cd CAW-todo-app
