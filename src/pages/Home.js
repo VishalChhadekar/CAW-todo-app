@@ -1,10 +1,11 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import AddTask from '../components/AddTask';
 import TaskList from '../components/TaskList';
 import Filter from '../components/Filter';
+import useLocalStorage from '../hooks/useLocalStorage';
 
 const Home = () => {
-  const [tasks, setTasks] = useState([
+  const [tasks, setTasks] = useLocalStorage('homeTasks', [
     { id: 1, text: 'Complete React assignment', completed: false },
     { id: 2, text: 'Prepare for SDE interview', completed: true },
     { id: 3, text: 'Update GitHub portfolio', completed: false },

@@ -1,10 +1,12 @@
+// src/pages/TodoApp.js
 import React, { useState } from 'react';
+import useLocalStorage from '../hooks/useLocalStorage';
 import AddTask from '../components/AddTask';
 import TaskList from '../components/TaskList';
 import Filter from '../components/Filter';
 
 const TodoApp = () => {
-  const [tasks, setTasks] = useState([]);
+  const [tasks, setTasks] = useLocalStorage('tasks', []);
   const [filter, setFilter] = useState('all');
 
   const handleAddTask = (text) => {
@@ -44,7 +46,7 @@ const TodoApp = () => {
         tasks={filteredTasks}
         onToggleComplete={handleToggleComplete}
         onDeleteTask={handleDeleteTask}
-        onEditTask={handleEditTask} // Pass the edit function here
+        onEditTask={handleEditTask}
       />
     </div>
   );
